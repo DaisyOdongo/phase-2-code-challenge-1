@@ -2,7 +2,7 @@ import React from "react";
 import Transaction from "./Transaction";
 
 function TransactionsList({transcations, handleDeletions}) {
-      const handleDeletion = async (transactionId) =>{
+      const handleDeletions = async (transactionId) =>{
         console.log(transactionId);
         try{
           const response = await fetch("http://localhost:8001/transactions/" + transactionId, {
@@ -34,7 +34,7 @@ function TransactionsList({transcations, handleDeletions}) {
         {transaction.map((transaction) =>
           <Transaction
             key={transaction.id}
-            handleDeletion={handleDeletion}
+            handleDeletions={handleDeletions}
             transaction={transaction} />)}
       </tbody>
     </table>

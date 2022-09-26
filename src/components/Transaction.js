@@ -1,9 +1,9 @@
 import React from "react";
 
-function Transaction({transaction, handleDeletion}){
+function Transaction({transaction, handleDeletions}){
   const {id,date,description, category, amount,}=transaction;
   return (
-    <tr onClick={() => handleDeletion(id)}>
+    <tr onClick={() => handleDeletions(id)}>
       <td>{date}</td>
       <td>{description}</td>
       <td>{category}</td>
