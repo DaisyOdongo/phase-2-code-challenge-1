@@ -36,7 +36,7 @@ function App() {
 					return false;
 				}
 			});
-			setTransactions(sortedTransactions);
+			setTransactions(filteredTransactions);
 		} else {
 			fetchTransactions();
 		}
