@@ -14,7 +14,7 @@ function AddTransactionForm(handleAddTransaction) {
 			const res = await fetch("http://localhost:8001/transactions", {
 				method: "POST",
 				headers: {
-					"Content-Type": "application/json",
+					      "Content-Type": "application/json",
 				},
 				body: JSON.stringify({
 					date: formData.date,
@@ -23,8 +23,8 @@ function AddTransactionForm(handleAddTransaction) {
 					amount: formData.amount,
 				}),
 			});
-			const jsonRes = await res.json();
-			handleAddTransaction(jsonRes);
+			const jsonResponse = await response.json();
+			handleAddTransaction(jsonResponse);
 			getFormData({
 				date: "",
 				description: "",

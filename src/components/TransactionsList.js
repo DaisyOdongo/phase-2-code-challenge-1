@@ -5,7 +5,7 @@ function TransactionsList({transcations, handleDeletions}) {
       const handleDeletion = async (transactionId) =>{
         console.log(transactionId);
         try{
-          const res = await fetch("http://localhost:8001/transactions/" + transactionId, {
+          const response = await fetch("http://localhost:8001/transactions/" + transactionId, {
             method: "DELETE",
           });
           handleDeletions(transactionId);
@@ -31,7 +31,7 @@ function TransactionsList({transcations, handleDeletions}) {
           </th>
         </tr>
         {/* render a list of <Transaction> components here */}
-        {transactions.map((transaction) =>
+        {transaction.map((transaction) =>
           <Transaction
             key={transaction.id}
             handleDeletion={handleDeletion}

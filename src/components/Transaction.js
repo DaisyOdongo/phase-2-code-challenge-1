@@ -1,13 +1,13 @@
 import React from "react";
 
-function Transaction() {
-  
+function Transaction({transaction, handleDeletion}){
+  const {id,date,description, category, amount,}=transaction;
   return (
-    <tr>
-      <td>{"your code here..."}</td>
-      <td>{"your code here..."}</td>
-      <td>{"your code here..."}</td>
-      <td>{"your code here..."}</td>
+    <tr onClick={() => handleDeletion(id)}>
+      <td>{date}</td>
+      <td>{description}</td>
+      <td>{category}</td>
+      <td>{amount}</td>
     </tr>
   );
 }
