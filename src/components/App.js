@@ -20,9 +20,9 @@ function App() {
 	const handleAddTransaction = (transactions) => {
 		setTransactions([...transactions, transactions]);
 	};
-	const handleDeletions = (transactionId) => {
+	const handleDeletions = (transId) => {
 		const filterTransactions = transactions.filter(
-			(trans) => transactions.id !== transactionId
+			(trans) => transactions.id !== transId
 		);
 
 		setTransactions(filterTransactions);

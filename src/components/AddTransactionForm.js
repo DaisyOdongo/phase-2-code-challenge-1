@@ -1,17 +1,17 @@
 import React from "react";
 
 function AddTransactionForm(handleAddTransaction) {
-  const [formData, getFormData] = React.useState({
+  const [formData, setFormData] = React.useState({
     date:"",
     description:"",
     category:"",
     amount:"null",
   });
-  const handlePostTransaction = async (e) => {
-		e.preventDefault();
+  const handlePostTransaction = async (event) => {
+		event.preventDefault();
 		console.log(formData);
 		try {
-			const res = await fetch("http://localhost:8001/transactions", {
+			const response = await fetch("http://localhost:8001/transactions", {
 				method: "POST",
 				headers: {
 					      "Content-Type": "application/json",
@@ -22,10 +22,10 @@ function AddTransactionForm(handleAddTransaction) {
 					category: formData.category,
 					amount: formData.amount,
 				}),
-			});
+  });
 			const jsonResponse = await response.json();
 			handleAddTransaction(jsonResponse);
-			getFormData({
+			setFormData({
 				date: "",
 				description: "",
 				category: "",
@@ -35,8 +35,8 @@ function AddTransactionForm(handleAddTransaction) {
 			console.log(err);
 		}
 	};
-  const handleDataChange =(e) =>{
-    getFormData({...formData, [e.target.name]:e.tartget.value})
+  const handleDataChange =(event) =>{
+    setFormData({...formData, [event.target.name]:event.tartget.value})
   }
   return (
     <div className="ui segment">

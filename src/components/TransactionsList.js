@@ -1,14 +1,15 @@
 import React from "react";
 import Transaction from "./Transaction";
 
-function TransactionsList({transcations, handleDeletions}) {
+function TransactionsList({transcations, handleDeleteTransactions, handleSort}) {
       const handleDeletions = async (transactionId) =>{
         console.log(transactionId);
         try{
           const response = await fetch("http://localhost:8001/transactions/" + transactionId, {
             method: "DELETE",
           });
-          handleDeletions(transactionId);
+          
+          handleDeleteTransactions(transactionId);
         }catch (error){
           console.log(error);
         }
@@ -21,17 +22,17 @@ function TransactionsList({transcations, handleDeletions}) {
             <h3 className="ui center aligned header">Date</h3>
           </th>
           <th>
-            <h3 className="ui center aligned header">Description</h3>
+            <h3 className="ui center aligned header" onClick={handleSort}>Description</h3>
           </th>
           <th>
-            <h3 className="ui center aligned header">Category</h3>
+            <h3 className="ui center aligned header"onClick={handleSort}>Category</h3>
           </th>
           <th>
             <h3 className="ui center aligned header">Amount</h3>
           </th>
         </tr>
         {/* render a list of <Transaction> components here */}
-        {transaction.map((transaction) =>
+        {transcations.map((transaction) =>
           <Transaction
             key={transaction.id}
             handleDeletions={handleDeletions}
