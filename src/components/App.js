@@ -1,10 +1,10 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import AccountContainer from "./AccountContainer";
 
 function App() {
-  const [transactions, setTransactions] = React.useState([]);
+  const [transactions, setTransactions] = useState([]);
 
-	React.useEffect(() => {
+	useEffect(() => {
 		fetchTransactions();
 	}, []);
 
@@ -46,7 +46,12 @@ function App() {
       <div className="ui segment violet inverted">
         <h2>The Royal Bank of Flatiron</h2>
       </div>
-      <AccountContainer />
+      <AccountContainer 
+	  handleAddTransaction={handleAddTransaction}
+	  transactions={transactions}
+	  handleSearch={handleSearch}
+	  handleDeletions={handleDeletions}
+	  />
     </div>
   );
 }

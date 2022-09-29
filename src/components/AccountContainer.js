@@ -3,7 +3,7 @@ import TransactionsList from "./TransactionsList";
 import Search from "./Search";
 import AddTransactionForm from "./AddTransactionForm";
 
-function AccountContainer({transactions, handleAddTransaction, handleSearch, handleDeletions}) {
+function AccountContainer({transactions, handleAddTransaction, handleSearch}) {
   return (
     <div>
       <Search />

@@ -1,7 +1,7 @@
-import React from "react";
+import React, {useState} from "react";
 
 function AddTransactionForm(handleAddTransaction) {
-  const [formData, setFormData] = React.useState({
+  const [formData, setFormData] = useState({
     date:"",
     description:"",
     category:"",
